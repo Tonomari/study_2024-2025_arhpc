@@ -1,0 +1,21 @@
+     1                                  SECTION .data
+     2 00000000 476F72204F67616E6E-     	hello:		DB 'Gor Ogannisyan',10
+     2 00000009 697379616E0A       
+     3                                  	
+     4                                  	
+     5                                  	helloLen: EQU $-hello
+     6                                  	
+     7                                  	
+     8                                  SECTION .text
+     9                                  	GLOBAL _start
+    10                                  	
+    11                                  _start:
+    12 00000000 B804000000              	mov eax,4
+    13 00000005 BB01000000              	mov ebx,1
+    14 0000000A B9[00000000]            	mov ecx,hello
+    15 0000000F BA0F000000              	mov edx,helloLen
+    16 00000014 CD80                    	int 80h
+    17                                  	
+    18 00000016 B801000000              	mov eax,1
+    19 0000001B BB00000000              	mov ebx,0
+    20 00000020 CD80                    	int 80h
